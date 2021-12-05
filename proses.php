@@ -32,14 +32,54 @@ if ($arr['0'] == 'tinggi' && $arr['1'] == 'bagus' && $arr['2'] == 'bagus') {
     $harga_jual = kesimpulan(1);
 } elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'bagus' && $arr['2'] == 'kurang') {
     $harga_jual = kesimpulan(2);
-} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'sedang' && $arr['2'] == 'tinggi') {
-    kesimpulan(2);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'sedang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(2);
 } elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'sedang' && $arr['2'] == 'sedang') {
-    kesimpulan(2);
+    $harga_jual = kesimpulan(2);
 } elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'sedang' && $arr['2'] == 'kurang') {
-    kesimpulan(3);
+    $harga_jual = kesimpulan(3);
 } elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'kurang' && $arr['2'] == 'bagus') {
-    kesimpulan(3);
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'kurang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'bagus' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'bagus' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'bagus' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'sedang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'sedang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'sedang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'kurang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'kurang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'bagus' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'bagus' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'bagus' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'sedang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'sedang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'sedang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'kurang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
 } else {
     echo "masukan";
 }
