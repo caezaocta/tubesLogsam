@@ -16,16 +16,109 @@
 // session_start();
 // $harga_jual = $_SESSION['harga_jual'];
 // $_SESSION[''] = $harga_jual;
-// require_once('proses.php');
+// require_once('proses.php');session_start();
+
+$harga_beli = $_POST['harga_beli'];
+$kondisi_fisik = $_POST['kondisi_fisik'];
+$kondisi_aksesoris = $_POST['kondisi_aksesoris'];
+
+
+$arr = [$harga_beli, $kondisi_fisik, $kondisi_aksesoris];
+
+$hasil = '';
+
+function kesimpulan($hasil)
+{
+
+    if ($hasil == '1') {
+        return "Harga Jual Sangat Tinggi";
+    } elseif ($hasil == '2') {
+        return "Harga Jual Tinggi";
+    } elseif ($hasil == '3') {
+        return "Harga Jual Sedang";
+    } elseif ($hasil == '4') {
+        return "Harga Jual Rendah";
+    } elseif ($hasil == '5') {
+        return "Harga Jual Sangat Rendah";
+    } else {
+        return "Harap masukan inputan yang sesuai";
+    }
+}
+
+if ($arr['0'] == 'tinggi' && $arr['1'] == 'bagus' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(1);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'bagus' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(1);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'bagus' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(2);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'sedang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(2);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'sedang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(2);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'sedang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'kurang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'kurang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'bagus' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'bagus' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'bagus' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'sedang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'sedang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'sedang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'kurang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'kurang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'bagus' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'bagus' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'bagus' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'sedang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'sedang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'sedang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'kurang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} else {
+    echo "masukan";
+}
+
 
 ?>
 
 <body>
 
-    <div class="container">
+
+
+    <div class="container ">
         <div class="text-center mt-5" style="margin-bottom: 100px;">
             <h1>Selamat datang di Sistem Pendukung Keputusan Harga Jual Handphone Bekas</h1>
         </div>
+
+        <div class="alert alert-success text-center">
+            <h3><?php echo $harga_jual; ?></h3>
+        </div>
+
         <h5 class="">
             Silakan masukkan kondisi HP anda berdasarkan petunjuk berikut
         </h5>
