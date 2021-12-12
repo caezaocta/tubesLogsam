@@ -41,67 +41,23 @@
             <div class="col-4">
                 <div class="card p-3" style="background-color: lightblue;">
                     <h5 class="mb-3">Kondisi Fisik</h5>
-                    <p>Bagus : Lecet maksimal 45% <br>
-                        Tombol power dan volume mengalami kerusakan namun masih bisa diperbaiki <br>
-                        Terdapat retak pada layar dan fungsi layar tidak maksimal
-                    </p>
-                    <p>Sedang : Hp lelet
-                        Lecet maksimal 25% <br>
-                        Tombol power atau volume berfungsi dengan baik <br>
-                        Terdapat goresan pada layar tapi masih berfungsi dengan baik
-                    </p>
-                    <p>Kurang : Lecet maksimal 45% <br>
-                        Tombol power dan volume mengalami kerusakan namun masih bisa diperbaiki <br>
-                        Terdapat retak pada layar dan fungsi layar tidak maksimal
-                    </p>
+                    <p>Bagus : Rp. 9.000.000 - 21.000.000</p>
+                    <p>Sedang : Rp. 4.000.000 - 10.000.000</p>
+                    <p>Kurang : Rp. 1.000.000 - 5.000.000</p>
                 </div>
             </div>
             <div class="col-4">
                 <div class="card p-3" style="background-color: #FFFFC2;">
                     <h5 class="mb-3">Kondisi Aksesoris</h5>
-                    <p>Bagus : Charger, box, headset, casing, memory card, kartu garansi (6)</p>
-                    <p>Sedang : Box, charger, kartu garansi</p>
-                    <p>Kurang : Charger</p>
+                    <p>Bagus : Rp. 9.000.000 - 21.000.000</p>
+                    <p>Sedang : Rp. 4.000.000 - 10.000.000</p>
+                    <p>Kurang : Rp. 1.000.000 - 5.000.000</p>
                 </div>
             </div>
         </div>
 
         <form method="post" action="hasil.php">
-
-
-            <!-- baru -->
-            <div class="form-group mb-3">
-                <label for="harga_beli">Harga Beli</label>
-                <input type="number" class="form-control" id="harga_beli" aria-describedby="emailHelp" name="harga_beli" min="1000000" max="21000000" required>
-                <small id="hargabelihint" class="form-text text-muted">Tulis harga barang tanpa mata uang dan tanpa tanda baca. Contoh: 500000</small>
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="kondisi_fisik">Kondisi Fisik</label>
-                <input type="number" class="form-control" id="kondisi_fisik" aria-describedby="emailHelp" name="kondisi_fisik" min="1" max="10" required>
-                <small id="hargabelihint" class="form-text text-muted">Tulis harga barang tanpa mata uang dan tanpa tanda baca. Contoh: 500000</small>
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="kondisi_aksesoris">Kondisi Aksesoris</label>
-                <input type="number" class="form-control" id="kondisi_aksesoris" aria-describedby="emailHelp" name="kondisi_aksesoris" min="1" max="10" required>
-                <small id="hargabelihint" class="form-text text-muted">Tulis harga barang tanpa mata uang dan tanpa tanda baca. Contoh: 500000</small>
-            </div>
-
-
-
-
-            <button type="submit" class="btn btn-primary mb-5">Submit</button>
-
-
-
-
-
-
-
-            <!-- lama -->
-
-            <!-- <div class="mb-3">
+            <div class="mb-3">
                 <label for="harga_beli" class="form-label">Harga Beli</label>
                 <select class="form-select" aria-label="Default select example" name="harga_beli">
                     <option value="tinggi">Tinggi</option>
@@ -124,7 +80,8 @@
                     <option value="sedang">Sedang</option>
                     <option value="kurang">Kurang</option>
                 </select>
-            </div> -->
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 

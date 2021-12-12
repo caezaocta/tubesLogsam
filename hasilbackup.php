@@ -23,49 +23,7 @@ $kondisi_fisik = $_POST['kondisi_fisik'];
 $kondisi_aksesoris = $_POST['kondisi_aksesoris'];
 
 
-
-
-// $arr = [$harga_beli, $kondisi_fisik, $kondisi_aksesoris];
-// if ($harga_beli >= '1000000' && $harga_beli <= '5000000') {
-//     $harga_beli == 'rendah';
-// }
-
-// if harga beli
-if ($harga_beli >= 1000000 && $harga_beli <= 5000000) {
-    $harga_beli = 'rendah';
-} elseif ($harga_beli >= 4000000 && $harga_beli <= 10000000) {
-    $harga_beli = 'sedang';
-} elseif ($harga_beli >= 9000000 && $harga_beli <= 21000000) {
-    $harga_beli = 'tinggi';
-}
-
-// if kondisi fisik
-if ($kondisi_fisik >= 1 && $kondisi_fisik <= 4) {
-    $kondisi_fisik = 'kurang';
-} elseif ($kondisi_fisik >= 3 && $kondisi_fisik <= 7) {
-    $kondisi_fisik = 'sedang';
-} elseif ($kondisi_fisik >= 6 && $kondisi_fisik <= 10) {
-    $kondisi_fisik = 'bagus';
-}
-
-//  if kondisi aksesoris
-if ($kondisi_aksesoris >= 1 && $kondisi_aksesoris <= 4) {
-    $kondisi_aksesoris = 'kurang';
-} elseif ($kondisi_aksesoris >= 3 && $kondisi_aksesoris <= 7) {
-    $kondisi_aksesoris = 'sedang';
-} elseif ($kondisi_aksesoris >= 6 && $kondisi_aksesoris <= 10) {
-    $kondisi_aksesoris = 'bagus';
-}
-
-
 $arr = [$harga_beli, $kondisi_fisik, $kondisi_aksesoris];
-
-// } elseif ($arr['0'] == 4000000 && $arr['0'] == 10000000) {
-//     $arr['0'] == 'sedang';
-// } elseif ($arr['0'] == 9000000 && $arr['0'] == 21000000) {
-//     $arr['0'] == 'tinggi';
-// }
-// print_r($arr);
 
 $hasil = '';
 
@@ -87,9 +45,7 @@ function kesimpulan($hasil)
     }
 }
 
-
-
-if ($arr['0'] === 'tinggi' && $arr['1'] === 'bagus' && $arr['2'] === 'bagus') {
+if ($arr['0'] == 'tinggi' && $arr['1'] == 'bagus' && $arr['2'] == 'bagus') {
     $harga_jual = kesimpulan(1);
 } elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'bagus' && $arr['2'] == 'sedang') {
     $harga_jual = kesimpulan(1);
@@ -162,7 +118,7 @@ if ($arr['0'] === 'tinggi' && $arr['1'] === 'bagus' && $arr['2'] === 'bagus') {
         <div class="alert alert-success text-center">
             <h3><?php echo $harga_jual; ?></h3>
         </div>
-        <!-- 
+
         <h5 class="">
             Silakan masukkan kondisi HP anda berdasarkan petunjuk berikut
         </h5>
@@ -191,45 +147,33 @@ if ($arr['0'] === 'tinggi' && $arr['1'] === 'bagus' && $arr['2'] === 'bagus') {
                     <p>Kurang : Rp. 1.000.000 - 5.000.000</p>
                 </div>
             </div>
-        </div> -->
-
-        <div class="row d-flex justify-content-center">
-            <div class="col-12">
-                <div class="card p-3 mb-5" style="background-color: #FFFFC2;">
-                    <h5 class="mb-3">Harga Jual</h5>
-
-                    <p>Sangat Rendah : <span class="fw-bold"> 4.000.000 – 1.100.000 </span></p>
-                    <p>Rendah : <span class="fw-bold"> 1.100.000 – 1.900.000</span></p>
-                    <p>Sedang : <span class="fw-bold">1.800.000 – 3.500.000</span></p>
-                    <p>Tinggi : <span class="fw-bold">3.400.000 – 4.800.000</span></p>
-                    <p>Sangat Tinggi : <span class="fw-bold">4.700.000 – 7.000.000</span></p>
-
-                </div>
-            </div>
         </div>
 
         <form method="post" action="hasil.php">
-            <div class="form-group mb-3">
-                <label for="harga_beli">Harga Beli</label>
-                <input type="number" class="form-control" id="harga_beli" aria-describedby="emailHelp" name="harga_beli" min="100000" max="21000000" required>
-                <small id="hargabelihint" class="form-text text-muted">Tulis harga barang tanpa mata uang dan tanpa tanda baca. Contoh: 500000</small>
+            <div class="mb-3">
+                <label for="harga_beli" class="form-label">Harga Beli</label>
+                <select class="form-select" aria-label="Default select example" name="harga_beli">
+                    <option value="tinggi">Tinggi</option>
+                    <option value="sedang">Sedang</option>
+                    <option value="rendah">Rendah</option>
+                </select>
             </div>
-
-            <div class="form-group mb-3">
-                <label for="kondisi_fisik">Kondisi Fisik</label>
-                <input type="number" class="form-control" id="kondisi_fisik" aria-describedby="emailHelp" name="kondisi_fisik" min="1" max="10" required>
-                <small id="hargabelihint" class="form-text text-muted">Tulis harga barang tanpa mata uang dan tanpa tanda baca. Contoh: 500000</small>
+            <div class="mb-3">
+                <label for="kondisi_fisik" class="form-label">Kondisi Fisik</label>
+                <select class="form-select" aria-label="Default select example" name="kondisi_fisik">
+                    <option value="bagus">Bagus</option>
+                    <option value="sedang">Sedang</option>
+                    <option value="kurang">Kurang</option>
+                </select>
             </div>
-
-            <div class="form-group mb-3">
-                <label for="kondisi_aksesoris">Kondisi Aksesoris</label>
-                <input type="number" class="form-control" id="kondisi_aksesoris" aria-describedby="emailHelp" name="kondisi_aksesoris" min="1" max="10" required>
-                <small id="hargabelihint" class="form-text text-muted">Tulis harga barang tanpa mata uang dan tanpa tanda baca. Contoh: 500000</small>
+            <div class="mb-3">
+                <label for="kondisi_aksesoris" class="form-label">Kondisi Aksesoris</label>
+                <select class="form-select" aria-label="Default select example" name="kondisi_aksesoris">
+                    <option value="bagus">Bagus</option>
+                    <option value="sedang">Sedang</option>
+                    <option value="kurang">Kurang</option>
+                </select>
             </div>
-
-
-
-
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
