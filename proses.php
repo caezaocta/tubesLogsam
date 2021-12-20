@@ -1,3 +1,303 @@
+<?php
+
+// menangkap name dari form
+function kesimpulan($hasil)
+{
+
+    if ($hasil == '1') {
+        return "Harga Jual Sangat Tinggi";
+    } elseif ($hasil == '2') {
+        return "Harga Jual Tinggi";
+    } elseif ($hasil == '3') {
+        return "Harga Jual Sedang";
+    } elseif ($hasil == '4') {
+        return "Harga Jual Rendah";
+    } elseif ($hasil == '5') {
+        return "Harga Jual Sangat Rendah";
+    } else {
+        return "Harap masukan inputan yang sesuai";
+    }
+}
+
+$harga_beli = $_POST['harga_beli'];
+
+$kondisi_fisik_kinerja = $_POST['kondisi_fisik_kinerja'];
+$kondisi_fisik_tombol = $_POST['kondisi_fisik_tombol'];
+$kondisi_fisik_luar = $_POST['kondisi_fisik_luar'];
+$kondisi_fisik_layar = $_POST['kondisi_fisik_layar'];
+$kondisi_fisik = '';
+$harga_jual = '';
+
+
+$kondisi_aksesoris = $_POST['kondisi_aksesoris'];
+// foreach ($kondisi_aksesoris as $ka) {
+//     $kon[] = $ka;
+
+//     # code...
+// }
+
+
+// ----------------------------------------------------------------------------------------
+// print_r($kondisi_aksesoris);
+// echo "<br>";
+
+// if ($kondisi_aksesoris[0] == 'charger') {
+//     $kon == 'rendah';
+// }
+// if ($kondisi_aksesoris[0] == 'charger'  && $kondisi_aksesoris[1] == 'box' && $kondisi_aksesoris[2] == 'kartu_garansi') {
+//     $kon = "sedang";
+// }
+// if ($kondisi_aksesoris[0] == 'charger'  && $kondisi_aksesoris[1] == 'box' && $kondisi_aksesoris[2] == 'headset' && $kondisi_aksesoris[3] == 'casing' && $kondisi_aksesoris[4] == 'memory' && $kondisi_aksesoris[5] == 'kartu_garansi') {
+//     $kon = "tinggi";
+// } elseif ($kondisi_aksesoris[0]) {
+//     $kon = 'rendah';
+// }x   
+
+// do {
+
+// } while (empty($kon));
+
+if ($harga_beli >= 1000000 && $harga_beli <= 5000000) {
+    $harga_beli = 'rendah';
+} elseif ($harga_beli >= 4000000 && $harga_beli <= 10000000) {
+    $harga_beli = 'sedang';
+} elseif ($harga_beli >= 9000000 && $harga_beli <= 21000000) {
+    $harga_beli = 'tinggi';
+}
+
+
+
+if (count($kondisi_aksesoris) > 1) {
+    if ($kondisi_aksesoris[0] == 'charger' && $kondisi_aksesoris[1] == 'box' && $kondisi_aksesoris[2] == 'kartu_garansi') {
+        $kon = 'sedang';
+    } elseif ($kondisi_aksesoris[0] == 'charger' && $kondisi_aksesoris[1] == 'box'  && $kondisi_aksesoris[2] == 'headset'  && $kondisi_aksesoris[3] == 'casing'  && $kondisi_aksesoris[4] == 'memory'  && $kondisi_aksesoris[5] == 'kartu_garansi') {
+        $kon = 'bagus';
+    }
+} elseif ($kondisi_aksesoris[0] == 'charger') {
+    $kon = 'kurang';
+}
+
+//  if kondisi fisik
+if ($kondisi_fisik_kinerja == 'baik' && $kondisi_fisik_tombol == 'powervolumebaik' && $kondisi_fisik_luar = 'lecet1' && $kondisi_fisik_layar == 'mulus') {
+    $kondisi_fisik = 'bagus';
+} elseif ($kondisi_fisik_kinerja == 'baik' && $kondisi_fisik_tombol == 'powervolumebaik' && $kondisi_fisik_luar = 'lecet2' && $kondisi_fisik_layar == 'mulus') {
+    $kondisi_fisik = 'bagus';
+} elseif ($kondisi_fisik_kinerja == 'baik' && $kondisi_fisik_tombol == 'powervolumebaik' && $kondisi_fisik_luar = 'lecet1' && $kondisi_fisik_layar == 'goresan') {
+    $kondisi_fisik = 'sedang';
+} elseif ($kondisi_fisik_kinerja == 'lambat' && $kondisi_fisik_tombol == 'powervolumebaik' && $kondisi_fisik_luar = 'lecet2' && $kondisi_fisik_layar == 'goresan') {
+    $kondisi_fisik = 'sedang';
+} elseif ($kondisi_fisik_kinerja == 'lambat' && $kondisi_fisik_tombol == 'powervolumerusak' && $kondisi_fisik_luar = 'lecet3' && $kondisi_fisik_layar == 'retak') {
+    $kondisi_fisik = 'kurang';
+} else {
+    echo "data belum tersedia";
+}
+
+
+
+// if ($kondisi_aksesoris[0] == 'charger' && $kondisi_aksesoris[1] == 'box'  && $kondisi_aksesoris[5] == 'kartu_garansi') {
+//     $kon = 'sedang';
+// } elseif ($kondisi_aksesoris[0] == 'charger' && $kondisi_aksesoris[1] == 'box'  && $kondisi_aksesoris[2] == 'headset'  && $kondisi_aksesoris[3] == 'casing'  && $kondisi_aksesoris[4] == 'memory'  && $kondisi_aksesoris[5] == 'kartu_garansi') {
+//     $kon = 'bagus';
+// }
+// if ($kondisi_aksesoris[0] == 'charger') {
+//     $kon = 'rendah';
+// }
+
+$arr = [$harga_beli, $kon, $kondisi_fisik];
+
+
+// ----------------------------------------------------------------------------------------
+// print_r($arr);
+
+
+if ($arr['0'] === 'tinggi' && $arr['1'] === 'bagus' && $arr['2'] === 'bagus') {
+    $harga_jual = kesimpulan(1);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'bagus' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(1);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'bagus' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(2);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'sedang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(2);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'sedang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(2);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'sedang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'kurang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'kurang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'tinggi' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'bagus' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'bagus' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'bagus' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'sedang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'sedang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'sedang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'kurang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'kurang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'sedang' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'bagus' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'bagus' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(3);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'bagus' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'sedang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'sedang' && $arr['2'] == 'sedang') {
+    $harga_jual = kesimpulan(4);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'sedang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'kurang' && $arr['2'] == 'bagus') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} elseif ($arr['0'] == 'rendah' && $arr['1'] == 'kurang' && $arr['2'] == 'kurang') {
+    $harga_jual = kesimpulan(5);
+} else {
+    echo "masukan";
+}
+
+// ----------------------------------------------------------------------------------------
+// echo "<br>";
+// print_r($harga_jual);
+
+
+
+// if (in_array('casing', $_POST['kondisi_aksesoris'])) {
+//     $kon = 'rendah';
+// } elseif (in_array('charger', $_POST['kondisi_aksesoris']) && in_array('box', $_POST['kondisi_aksesoris']) && in_array('kartu_garansi', $_POST['kondisi_aksesoris'])) {
+//     $kon = 'sedang';
+// } elseif (in_array('kartu_garansi', $_POST['kondisi_aksesoris'])) {
+//     $kon = 'tinggi';
+// }
+
+// if (array_intersect($_POST['kondisi_aksesoris'], array('charger'))) {
+//     $kondisi_aksesoris = 'rendah';
+// } elseif (array_intersect($_POST['kondisi_aksesoris'], array('charger', 'box', 'kartu_garansi'))) {
+//     $kondisi_aksesoris = 'sedang';
+// }
+
+// if (in_array('charger', $_POST['kondisi_aksesoris'])) {
+//     $kondisi_aksesoris = 'rendah';
+// } elseif (array_intersect($_POST['kondisi_aksesoris'], array('charger', 'box', 'kartu_garansi', 'casing', 'headset'))) {
+//     $kondisi_aksesoris = 'tinggi';
+// } elseif (array_intersect($_POST['kondisi_aksesoris'], array('charger', 'box', 'kartu_garansi'))) {
+//     $kondisi_aksesoris = 'sedang';
+// }
+
+
+
+
+// elseif (in_array('box', $_POST['kondisi_aksesoris'])) {
+//     $kon = 'sedang';
+// }
+
+
+
+
+// echo $kondisi_fisik_kinerja;
+
+
+// if harga beli
+
+
+
+
+
+// if kondisi aksesoris
+
+
+// if ($kon['0'] == 'charger' && empty($kon['1'] == 'box') && empty($kon['2'] == 'headset') && empty($kon['3'] == 'casing') && empty($kon['4'] == 'memory') && empty($kon['5'] == 'kartu_garansi')) {
+//     $kon = 'rendah';
+// } elseif ($kon['0'] == 'charger' && $kon['1'] == 'box'  && empty($kon['2'] == 'headset') && empty($kon['3'] == 'casing') && empty($kon['4'] == 'memory') && $kon['5'] == 'kartu_garansi') {
+//     $kon = 'sedang';
+// } elseif ($kon['0'] == 'charger' && $kon['1'] == 'box'  && $kon['2'] == 'headset'  && $kon['3'] == 'casing'  && $kon['4'] == 'memory'  && $kon['5'] == 'kartu_garansi') {
+//     $kon = 'bagus';
+// }
+
+
+
+// if ($kondisi_aksesoris['0'] === 'charger'  && $kondisi_aksesoris['1'] === 'box' && $kondisi_aksesoris['2'] === 'headset' && $kondisi_aksesoris['3'] === 'casing' && $kondisi_aksesoris['4'] === 'memory' && $kondisi_aksesoris['5'] === 'kartu_garansi') {
+//     $kondisi_aksesoris = "tinggi";
+// } elseif ($kondisi_aksesoris['0'] === 'charger'  && $kondisi_aksesoris['1'] === 'box') {
+//     $kondisi_aksesoris = "sedang";
+// } elseif ($kondisi_aksesoris['0'] === 'charger') {
+//     $kondisi_aksesoris = 'rendah';
+// }
+
+// $arr = [$harga_beli, $kon];
+// $arr = [$kon];
+// echo $ka;
+// print_r($arr);
+
+
+
+
+
+
+// $kondisi_fisik = $_POST['kondisi_fisik'];
+// $kondisi_aksesoris = $_POST['kondisi_aksesoris'];
+
+
+
+
+// $arr = [$harga_beli, $kondisi_fisik, $kondisi_aksesoris];
+// if ($harga_beli >= '1000000' && $harga_beli <= '5000000') {
+//     $harga_beli == 'rendah';
+// }
+
+// if harga beli
+
+// // if kondisi fisik
+// if ($kondisi_fisik >= 1 && $kondisi_fisik <= 4) {
+//     $kondisi_fisik = 'kurang';
+// } elseif ($kondisi_fisik >= 3 && $kondisi_fisik <= 7) {
+//     $kondisi_fisik = 'sedang';
+// } elseif ($kondisi_fisik >= 6 && $kondisi_fisik <= 10) {
+//     $kondisi_fisik = 'bagus';
+// }
+
+// //  if kondisi aksesoris
+// if ($kondisi_aksesoris >= 1 && $kondisi_aksesoris <= 4) {
+//     $kondisi_aksesoris = 'kurang';
+// } elseif ($kondisi_aksesoris >= 3 && $kondisi_aksesoris <= 7) {
+//     $kondisi_aksesoris = 'sedang';
+// } elseif ($kondisi_aksesoris >= 6 && $kondisi_aksesoris <= 10) {
+//     $kondisi_aksesoris = 'bagus';
+// }
+
+
+
+
+// } elseif ($arr['0'] == 4000000 && $arr['0'] == 10000000) {
+//     $arr['0'] == 'sedang';
+// } elseif ($arr['0'] == 9000000 && $arr['0'] == 21000000) {
+//     $arr['0'] == 'tinggi';
+// }
+// print_r($arr);
+
+// $hasil = '';
+
+
+
+
+// print_r($kondisi_fisik_kinerja);
+
+// kondisi harga beli
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -12,7 +312,13 @@
     <title>Tubes Logika Samar</title>
 </head>
 
+<?php
+// session_start();
+// $harga_jual = $_SESSION['harga_jual'];
+// $_SESSION[''] = $harga_jual;
+// require_once('proses.php');
 
+?>
 
 <body>
 
@@ -61,7 +367,11 @@
         </div> -->
 
 
-        <!-- 
+
+        <div class="alert alert-success" role="alert">
+            <h5 class="text-center"><?php echo $harga_jual; ?></h5>
+        </div>
+
         <div class="row">
             <div class="col">
                 <div class="alert alert-primary" role="alert">
@@ -94,7 +404,7 @@
 
             </div>
 
-        </div> -->
+        </div>
 
         <form method="post" action="proses.php">
 
